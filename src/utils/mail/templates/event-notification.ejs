@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Notification</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+        background-color: #f4f4f7;
+      }
+      .container {
+        width: 100%;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+      }
+      .card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        width: 600px;
+        max-width: 90%;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      h2 {
+        font-size: 24px;
+        color: #333333;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 16px;
+        color: #555555;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+      .btn {
+        display: inline-block;
+        background-color: #6366f1;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #4f46e5;
+      }
+      .footer {
+        font-size: 12px;
+        color: #999999;
+        margin-top: 30px;
+      }
+      strong {
+        color: #111827;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2>Hello <%= fullName %>!</h2>
+        <p>
+          Event baru telah dibuat: <strong><%= eventName %></strong><br />
+          Tanggal: <%= eventDate %>
+        </p>
+        <a href="<%= eventLink %>" class="btn">Lihat Detail Event</a>
+        <p class="footer">Salam,<br />Tim Platform</p>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Presale Notification</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+        background-color: #f4f4f7;
+      }
+      .container {
+        width: 100%;
+        padding: 40px 0;
+        display: flex;
+        justify-content: center;
+      }
+      .card {
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 600px;
+        max-width: 90%;
+        text-align: center;
+        padding: 40px 20px;
+      }
+      h2 {
+        font-size: 24px;
+        color: #333333;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 16px;
+        color: #555555;
+        line-height: 1.5;
+        margin-bottom: 20px;
+      }
+      .btn {
+        display: inline-block;
+        background-color: #22c55e;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 14px 28px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        transition: background-color 0.3s;
+      }
+      .btn:hover {
+        background-color: #16a34a;
+      }
+      strong {
+        color: #111827;
+      }
+      .footer {
+        font-size: 12px;
+        color: #999999;
+        margin-top: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card">
+        <h2>Hai <%= fullName %>,</h2>
+        <p>
+          Kamu terdaftar di presale event: <strong><%= eventName %></strong
+          ><br />
+          Tanggal: <%= eventDate %>
+        </p>
+        <a href="<%= loginLink %>" class="btn">Login & Beli Tiket</a>
+        <p class="footer">
+          Jangan sampai kehabisan tiket!<br />
+          Salam,<br />Tim Platform
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
