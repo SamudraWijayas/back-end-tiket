@@ -503,7 +503,14 @@ export default {
       });
 
       const result = await OrderModel.find(query)
-        .populate("events", "name banner")
+        .populate({
+          path: "events",
+          select: "name banner createdBy", // ambil juga createdBy di event
+          populate: {
+            path: "createdBy", // populate field di dalam events
+            select: "fullName", // ambil kolom yang kamu butuhkan
+          },
+        })
         .populate("createdBy", "fullName")
         .populate("ticket", "name")
         .limit(+limit)
