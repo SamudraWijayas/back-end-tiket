@@ -505,7 +505,7 @@ export default {
       const result = await OrderModel.find(query)
         .populate({
           path: "events",
-          select: "name banner createdBy", // ambil juga createdBy di event
+          select: "name banner createdBy slug", // ambil juga createdBy di event
           populate: {
             path: "createdBy", // populate field di dalam events
             select: "fullName", // ambil kolom yang kamu butuhkan
