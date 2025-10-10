@@ -696,11 +696,19 @@ export default {
       // Inject payment_type
       if (payment_type) {
         updateData["payment.payment_type"] = payment_type;
+
         if (payment_type === "bank_transfer" && req.body.va_numbers?.length) {
           updateData["payment.bank"] = req.body.va_numbers[0].bank;
           updateData["payment.va_number"] = req.body.va_numbers[0].va_number;
+        } else if (req.body.bank) {
+          // Misal untuk credit_card, QRIS, e-wallet
+          updateData["payment.bank"] = req.body.bank;
         }
       }
+
+      // Simpan transaction_time terpisah agar selalu masuk
+      updateData["payment.transaction_time"] =
+        req.body.transaction_time ?? new Date();
 
       // Jika COMPLETED → generate barcode + kurangi tiket
       if (

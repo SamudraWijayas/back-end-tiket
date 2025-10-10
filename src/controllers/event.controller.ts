@@ -83,7 +83,10 @@ export default {
         return response.notFound(res, "failed find one a ticket");
       }
 
-      const result = await EventModel.findById(id);
+      const result = await EventModel.findById(id).populate(
+        "createdBy",
+        "fullName"
+      );
 
       if (!result) {
         return response.notFound(res, "failed find one a event");
