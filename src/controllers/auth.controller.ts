@@ -190,7 +190,7 @@ export default {
           fullName: name || "No Name",
           username,
           password: "Tiket_1234", // dummy password
-          profilePicture: profilePath,
+          profilePicture: "",
           isActive: true,
           role: "member",
           isProfileComplete: false,
