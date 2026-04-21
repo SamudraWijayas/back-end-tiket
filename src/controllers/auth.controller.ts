@@ -34,7 +34,7 @@ export default {
         },
         {
           new: true,
-        }
+        },
       );
 
       if (!result) return response.notFound(res, "user not found");
@@ -67,7 +67,7 @@ export default {
         },
         {
           new: true,
-        }
+        },
       );
       response.success(res, result, "success to update password");
     } catch (error) {
@@ -174,23 +174,24 @@ export default {
         }
 
         // Download gambar Google ke server
-        let profilePath = "";
-        if (picture) {
-          const imageResponse = await axios.get(picture, {
-            responseType: "arraybuffer",
-          });
-          const filename = `google_${Date.now()}.jpg`;
-          const filepath = path.join(process.cwd(), "uploads", filename);
-          fs.writeFileSync(filepath, imageResponse.data);
-          profilePath = `/uploads/${filename}`;
-        }
+        // let profilePath = "";
+        const profilePath = null;
+        // if (picture) {
+        //   const imageResponse = await axios.get(picture, {
+        //     responseType: "arraybuffer",
+        //   });
+        //   const filename = `google_${Date.now()}.jpg`;
+        //   const filepath = path.join(process.cwd(), "uploads", filename);
+        //   fs.writeFileSync(filepath, imageResponse.data);
+        //   profilePath = `/uploads/${filename}`;
+        // }
 
         user = await UserModel.create({
           email,
           fullName: name || "No Name",
           username,
           password: "Tiket_1234", // dummy password
-          profilePicture: "",
+          profilePicture: profilePath,
           isActive: true,
           role: "member",
           isProfileComplete: false,
@@ -208,7 +209,7 @@ export default {
       return response.success(
         res,
         { token, user },
-        "Login with Google success"
+        "Login with Google success",
       );
     } catch (err) {
       console.error("Google login error:", err);
@@ -239,7 +240,7 @@ export default {
         },
         {
           new: true,
-        }
+        },
       );
 
       response.success(res, user, "user successfully activated");
